@@ -265,7 +265,7 @@ describe("5.2 - Board Plays", () => {
       ];
 
       const player1Hole = [card("2", "♠"), card("3", "♦")];
-      const player2Hole = [card("10", "♦"), card("9", "♦")];
+      const player2Hole = [card("7", "♦"), card("8", "♥")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
@@ -310,8 +310,8 @@ describe("5.2 - Board Plays", () => {
         card("Q", "♣"),
       ];
 
-      const player1Hole = [card("A", "♦"), card("A", "♠")];
-      const player2Hole = [card("J", "♦"), card("10", "♠")];
+      const player1Hole = [card("2", "♠"), card("3", "♦")];
+      const player2Hole = [card("4", "♠"), card("5", "♣")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
