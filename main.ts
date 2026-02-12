@@ -163,6 +163,39 @@ export function compareHands(hand1: Hand, hand2: Hand): number {
   return 0;
 }
 
+function generateCombinations(cards: Card[], size: number): Card[][] {
+  if (size === 0) return [[]];
+  if (cards.length === 0) return [];
+
+  const [first, ...rest] = cards;
+  const combosWith = generateCombinations(rest, size - 1).map((combo) => [
+    first,
+    ...combo,
+  ]);
+  const combosWithout = generateCombinations(rest, size);
+
+  return [...combosWith, ...combosWithout];
+}
+
+export function findBestHand(sevenCards: Card[]): Hand {
+  if (sevenCards.length !== 7) {
+    throw new Error("Must provide exactly 7 cards");
+  }
+
+  const combinations = generateCombinations(sevenCards, 5);
+
+  let bestHand = evaluateHand(combinations[0]);
+
+  for (let i = 1; i < combinations.length; i++) {
+    const currentHand = evaluateHand(combinations[i]);
+    if (compareHands(currentHand, bestHand) > 0) {
+      bestHand = currentHand;
+    }
+  }
+
+  return bestHand;
+}
+
 const main = () => {
   console.log("Texas Hold'em Poker Hand Evaluator");
 };
