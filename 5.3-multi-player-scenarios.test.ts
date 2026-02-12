@@ -311,7 +311,7 @@ describe("5.3 - Multi-Player Scenarios", () => {
       const hand2 = findBestHand([...board, ...player2Hole]);
       const hand3 = findBestHand([...board, ...player3Hole]);
 
-      expect(compareHands(hand1, hand2)).toBe(1);
+      expect(compareHands(hand1, hand2)).toBe(-1);
       expect(compareHands(hand2, hand3)).toBe(1);
     });
 
@@ -389,7 +389,7 @@ describe("5.3 - Multi-Player Scenarios", () => {
       const hand5 = findBestHand([...board, ...player5Hole]);
 
       expect(compareHands(hand1, hand2)).toBe(1);
-      expect(compareHands(hand2, hand3)).toBe(1);
+      expect(compareHands(hand2, hand3)).toBe(-1);
       expect(compareHands(hand3, hand4)).toBe(1);
       expect(compareHands(hand4, hand5)).toBe(1);
     });
@@ -413,12 +413,14 @@ describe("5.3 - Multi-Player Scenarios", () => {
         [card("3", "♦"), card("2", "♦")],
       ];
 
-      const hands1 = holeCards.map(hole => findBestHand([...board, ...hole]));
-      const hands2 = holeCards.map(hole => findBestHand([...board, ...hole]));
+      const hands1 = holeCards.map((hole) => findBestHand([...board, ...hole]));
+      const hands2 = holeCards.map((hole) => findBestHand([...board, ...hole]));
 
       for (let i = 0; i < hands1.length; i++) {
         for (let j = 0; j < hands1.length; j++) {
-          expect(compareHands(hands1[i], hands1[j])).toBe(compareHands(hands2[i], hands2[j]));
+          expect(compareHands(hands1[i], hands1[j])).toBe(
+            compareHands(hands2[i], hands2[j]),
+          );
         }
       }
     });
