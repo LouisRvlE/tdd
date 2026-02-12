@@ -14,13 +14,13 @@ describe("5.3 - Multi-Player Scenarios", () => {
       ];
 
       const player1Hole = [card("A", "♠"), card("2", "♠")];
-      const player2Hole = [card("A", "♣"), card("A", "♥")];
+      const player2Hole = [card("9", "♠"), card("8", "♠")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
 
       expect(hand1.category).toBe(HandCategory.STRAIGHT_FLUSH);
-      expect(hand2.category).toBe(HandCategory.FOUR_OF_A_KIND);
+      expect(hand2.category).toBe(HandCategory.STRAIGHT_FLUSH);
       expect(compareHands(hand1, hand2)).toBe(1);
     });
 
@@ -40,8 +40,8 @@ describe("5.3 - Multi-Player Scenarios", () => {
       const hand2 = findBestHand([...board, ...player2Hole]);
 
       expect(hand1.category).toBe(HandCategory.FULL_HOUSE);
-      expect(hand2.category).toBe(HandCategory.HIGH_CARD);
-      expect(compareHands(hand1, hand2)).toBe(1);
+      expect(hand2.category).toBe(HandCategory.FULL_HOUSE);
+      expect(compareHands(hand1, hand2)).toBe(0);
     });
 
     test("should determine winner with flush vs straight", () => {
@@ -49,12 +49,12 @@ describe("5.3 - Multi-Player Scenarios", () => {
         card("A", "♥"),
         card("K", "♥"),
         card("Q", "♥"),
-        card("J", "♦"),
-        card("10", "♦"),
+        card("J", "♥"),
+        card("2", "♦"),
       ];
 
-      const player1Hole = [card("9", "♥"), card("2", "♦")];
-      const player2Hole = [card("9", "♣"), card("8", "♠")];
+      const player1Hole = [card("9", "♥"), card("3", "♦")];
+      const player2Hole = [card("10", "♣"), card("9", "♣")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
@@ -73,7 +73,7 @@ describe("5.3 - Multi-Player Scenarios", () => {
         card("7", "♣"),
       ];
 
-      const player1Hole = [card("A", "♦"), card("Q", "♦")];
+      const player1Hole = [card("A", "♦"), card("A", "♠")];
       const player2Hole = [card("2", "♠"), card("3", "♠")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
@@ -120,9 +120,9 @@ describe("5.3 - Multi-Player Scenarios", () => {
         card("10", "♦"),
       ];
 
-      const player1Hole = [card("9", "♠"), card("2", "♦")];
+      const player1Hole = [card("9", "♠"), card("8", "♠")];
       const player2Hole = [card("9", "♦"), card("8", "♣")];
-      const player3Hole = [card("9", "♣"), card("9", "♠")];
+      const player3Hole = [card("7", "♣"), card("6", "♣")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
@@ -161,14 +161,14 @@ describe("5.3 - Multi-Player Scenarios", () => {
         card("A", "♥"),
         card("K", "♥"),
         card("Q", "♥"),
-        card("J", "♦"),
-        card("10", "♦"),
+        card("J", "♥"),
+        card("2", "♦"),
       ];
 
-      const player1Hole = [card("9", "♥"), card("2", "♣")];
-      const player2Hole = [card("9", "♦"), card("8", "♠")];
-      const player3Hole = [card("9", "♣"), card("7", "♣")];
-      const player4Hole = [card("9", "♠"), card("6", "♠")];
+      const player1Hole = [card("9", "♥"), card("3", "♣")];
+      const player2Hole = [card("10", "♦"), card("9", "♦")];
+      const player3Hole = [card("8", "♣"), card("7", "♣")];
+      const player4Hole = [card("6", "♠"), card("5", "♠")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
@@ -191,9 +191,9 @@ describe("5.3 - Multi-Player Scenarios", () => {
       ];
 
       const player1Hole = [card("A", "♠"), card("2", "♣")];
-      const player2Hole = [card("A", "♣"), card("A", "♥")];
-      const player3Hole = [card("9", "♠"), card("9", "♦")];
-      const player4Hole = [card("8", "♦"), card("7", "♦")];
+      const player2Hole = [card("9", "♠"), card("8", "♠")];
+      const player3Hole = [card("A", "♣"), card("A", "♥")];
+      const player4Hole = [card("K", "♦"), card("K", "♥")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
@@ -218,7 +218,7 @@ describe("5.3 - Multi-Player Scenarios", () => {
 
       const player1Hole = [card("A", "♦"), card("A", "♠")];
       const player2Hole = [card("K", "♥"), card("K", "♣")];
-      const player3Hole = [card("Q", "♠"), card("Q", "♦")];
+      const player3Hole = [card("10", "♠"), card("10", "♦")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
@@ -233,13 +233,13 @@ describe("5.3 - Multi-Player Scenarios", () => {
         card("A", "♠"),
         card("K", "♠"),
         card("Q", "♠"),
-        card("J", "♦"),
-        card("10", "♦"),
+        card("J", "♠"),
+        card("2", "♦"),
       ];
 
-      const player1Hole = [card("9", "♠"), card("2", "♣")];
-      const player2Hole = [card("8", "♠"), card("2", "♦")];
-      const player3Hole = [card("7", "♠"), card("2", "♥")];
+      const player1Hole = [card("10", "♠"), card("3", "♣")];
+      const player2Hole = [card("9", "♠"), card("3", "♦")];
+      const player3Hole = [card("8", "♠"), card("3", "♥")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
@@ -275,14 +275,14 @@ describe("5.3 - Multi-Player Scenarios", () => {
         card("A", "♣"),
         card("K", "♦"),
         card("Q", "♥"),
-        card("J", "♠"),
-        card("8", "♣"),
+        card("9", "♠"),
+        card("7", "♣"),
       ];
 
-      const player1Hole = [card("9", "♦"), card("2", "♣")];
-      const player2Hole = [card("7", "♥"), card("2", "♦")];
-      const player3Hole = [card("6", "♠"), card("2", "♥")];
-      const player4Hole = [card("5", "♣"), card("2", "♠")];
+      const player1Hole = [card("J", "♦"), card("2", "♣")];
+      const player2Hole = [card("10", "♥"), card("2", "♦")];
+      const player3Hole = [card("8", "♠"), card("2", "♥")];
+      const player4Hole = [card("6", "♣"), card("2", "♠")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
