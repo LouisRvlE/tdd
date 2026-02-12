@@ -30,7 +30,7 @@ describe("5.2 - Board Plays", () => {
         card("K", "♠"),
         card("Q", "♠"),
         card("J", "♠"),
-        card("9", "♣"),
+        card("9", "♠"),
       ];
 
       const player1Hole = [card("2", "♦"), card("3", "♦")];
@@ -152,7 +152,7 @@ describe("5.2 - Board Plays", () => {
         card("A", "♥"),
         card("K", "♥"),
         card("Q", "♥"),
-        card("J", "♦"),
+        card("J", "♥"),
         card("9", "♣"),
       ];
 
@@ -163,7 +163,7 @@ describe("5.2 - Board Plays", () => {
       const hand2 = findBestHand([...board, ...player2Hole]);
 
       expect(hand1.category).toBe(HandCategory.STRAIGHT_FLUSH);
-      expect(hand2.category).toBe(HandCategory.STRAIGHT);
+      expect(hand2.category).toBe(HandCategory.HIGH_CARD);
       expect(compareHands(hand1, hand2)).toBe(1);
     });
 
@@ -260,7 +260,7 @@ describe("5.2 - Board Plays", () => {
         card("A", "♠"),
         card("K", "♠"),
         card("Q", "♠"),
-        card("J", "♦"),
+        card("J", "♠"),
         card("9", "♣"),
       ];
 
@@ -306,12 +306,12 @@ describe("5.2 - Board Plays", () => {
         card("K", "♣"),
         card("K", "♦"),
         card("K", "♥"),
-        card("7", "♠"),
-        card("7", "♣"),
+        card("Q", "♠"),
+        card("Q", "♣"),
       ];
 
       const player1Hole = [card("A", "♦"), card("A", "♠")];
-      const player2Hole = [card("Q", "♦"), card("Q", "♠")];
+      const player2Hole = [card("J", "♦"), card("J", "♠")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
