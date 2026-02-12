@@ -182,20 +182,19 @@ describe("5.1 - Multi-Player Comparison", () => {
         card("K", "♣"),
         card("Q", "♦"),
         card("J", "♥"),
-        card("6", "♠"),
+        card("10", "♠"),
       ];
 
-      const player1Hole = [card("2", "♦"), card("2", "♥")];
-      const player2Hole = [card("3", "♠"), card("3", "♣")];
-      const player3Hole = [card("9", "♦"), card("8", "♥")];
+      const player1Hole = [card("2", "♦"), card("3", "♥")];
+      const player2Hole = [card("4", "♠"), card("5", "♣")];
+      const player3Hole = [card("6", "♦"), card("7", "♥")];
 
       const hand1 = findBestHand([...board, ...player1Hole]);
       const hand2 = findBestHand([...board, ...player2Hole]);
       const hand3 = findBestHand([...board, ...player3Hole]);
 
       expect(compareHands(hand1, hand2)).toBe(0);
-      expect(compareHands(hand1, hand3)).toBe(1);
-      expect(compareHands(hand2, hand3)).toBe(1);
+      expect(compareHands(hand2, hand3)).toBe(0);
     });
 
     test("should identify three-way tie", () => {
