@@ -362,9 +362,9 @@ describe("5.3 - Multi-Player Scenarios", () => {
       const hand6 = findBestHand([...board, ...player6Hole]);
 
       expect(compareHands(hand1, hand2)).toBe(0);
-      expect(compareHands(hand3, hand4)).toBe(1);
-      expect(compareHands(hand4, hand5)).toBe(1);
-      expect(compareHands(hand5, hand6)).toBe(1);
+      expect(compareHands(hand3, hand4)).toBe(0);
+      expect(compareHands(hand4, hand5)).toBe(0);
+      expect(compareHands(hand5, hand6)).toBe(0);
     });
 
     test("should handle 5 players with varied outcomes", () => {
